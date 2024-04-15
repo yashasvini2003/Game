@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End Page</title>
+    <link rel="stylesheet" href="../static/end_game.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./static/game.jpg" alt="Memory Test Game Image">
+        <div class="content">
+            <h1>Hope you had Fun!</h1>
+            <h2>You have completed level {{ level }}.</h2>
+            <div class="button-container">
+                <form action="/start_over" method="get">
+                    <input type="submit" value="Start Over">
+                </form>
+                
+                <form action="/leaderboard" method="get">
+                    <input type="submit" value="Leader Board">
+                </form>
+
+                <form action="/" method="get">
+                    <input type="submit" value="Exit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

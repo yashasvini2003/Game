@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Test Game</title>
+    <link rel="stylesheet" href="./static/index.css">
+    <script>
+        function checkName() {
+            var playerName = document.getElementById("playerName").value;
+            if (playerName === "") {
+                alert("Please enter your name before proceeding.");
+                return false; 
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="./static/game.jpg" alt="Memory Test Game Image">
+        <div class="content">
+            <h1>Welcome to Mind's Eye Game</h1>
+            <p>Please enter your name:</p>
+            <form action="/instructions" method="post" onsubmit="return checkName()">
+                <input type="text" id="playerName" name="playerName" placeholder="Your Name">
+                <br>
+                <button type="submit">Instructions</button>
+                <input type="hidden" name="source" value="index">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

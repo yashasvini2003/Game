@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructions of the Game</title>
+  <link rel="stylesheet" href="./static/instructions.css">
+  <script>
+    function checkName() {
+        var playerName = document.getElementById("playerName").value;
+        if (playerName === "") {
+            alert("Please enter your name before proceeding.");
+            return false;
+        }
+        return true;
+    }
+
+    function validateForm() {
+        var checkBox = document.getElementById("agreementCheckbox");
+
+        if (checkBox.checked) {
+            return true; // Form submission allowed
+        } else {
+            alert("Please agree to the terms and conditions.");
+            return false; // Form submission blocked
+        }
+    }
+
+    function enableButton() {
+        var checkBox = document.getElementById("agreementCheckbox");
+        var startButton = document.getElementById("uniqueStartButton"); // Use the new ID
+
+        startButton.disabled = !checkBox.checked;
+        if (checkBox.checked) {
+            startButton.classList.remove("fadeColor");
+        } else {
+            startButton.classList.add("fadeColor");
+        }
+    }
+</script>
+
+</head>
+<body>
+  <div class="container">
+    <img src="./static/game.jpg" alt="Memory Test Game Image">
+    <div class="content">
+      <h1>Mind's Eye Game</h1>
+      <div class="game-instructions">
+        <h2>Instructions:</h2>
+        <ol>
+          <li>You will be shown a sequence of numbers on the screen.</li>
+          <li>Memorize the numbers carefully as they will disappear after a few seconds.</li>
+          <li>After the numbers disappear, write down the numbers in the sequence you saw them.</li>
+          <li>Try to recall the numbers accurately and in the correct order.</li>
+          <li>Once you have written down your answer, submit it to see your score.</li>
+          <li>Your score will be based on how accurately you recalled the sequence of numbers.</li>
+        </ol>
+        <h2>Tips:</h2>
+        <ul>
+          <li>Focus and concentrate during the memorization phase.</li>
+          <li>Try to visualize the sequence in your mind.</li>
+          <li>Take your time to write down the numbers accurately.</li>
+        </ul>
+        <h1>Have fun!!!</h1>
+      </div>
+      <form method="post" action="/instructions" onsubmit="return validateForm()">
+        <input type="checkbox" id="agreementCheckbox" name="agreement" onchange="enableButton()">
+        <label for="agreementCheckbox">I agree to the terms and conditions</label><br><br>
+        <button type="submit" id="uniqueStartButton">Start Game</button>
+        <input type="hidden" name="source" value="instructions">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

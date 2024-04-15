@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="../static/leaderboard.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./static/game.jpg" alt="Memory Test Game Image">
+        <div class="content">
+            <h1>Leaderboard</h1>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rank, player_name, score in leaderboard %}
+                    <tr>
+                        <td>{{ rank }}</td>
+                        <td>{{ player_name }}</td>
+                        <td>{{ score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="button-container">
+                <form action="/start_over" method="get">
+                    <input type="submit" value="Start Over">
+                </form>
+                
+                <form action="/" method="get">
+                    <input type="submit" value="Exit">
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
